@@ -2,24 +2,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:00:11 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/17 13:00:29 by gtegano          ###   ########.fr       */
+/*   Created: 2023/01/17 16:35:20 by gtegano           #+#    #+#             */
+/*   Updated: 2023/01/17 16:35:20 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned char	*str;
+	unsigned int	i;
 
-	str = (unsigned char *)s;
-	if (n)
-		while (n--)
-			*str++ = (unsigned char)c;
-	return (s);
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	{
+		if (s1[i] > s2[i])
+		{
+			return (1);
+		}
+		else if (s1[i] < s2[i])
+		{
+			return (-1);
+		}
+		i++;
+	}
+	return (0);
 }

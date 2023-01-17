@@ -2,24 +2,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:00:11 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/17 13:00:29 by gtegano          ###   ########.fr       */
+/*   Created: 2023/01/17 16:36:49 by gtegano           #+#    #+#             */
+/*   Updated: 2023/01/17 16:36:49 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_atoi(char *str)
 {
-	unsigned char	*str;
+	int	c;
+	int	s;
+	int	res;
 
-	str = (unsigned char *)s;
-	if (n)
-		while (n--)
-			*str++ = (unsigned char)c;
-	return (s);
+	c = 0;
+	s = 1;
+	res = 0;
+	while ((str[c] >= '\t' && str[c] <= '\r') || str[c] == ' ')
+	{
+		c++;
+	}
+	while (str[c] == '+' || str[c] == '-')
+	{
+		if (str[c] == '-')
+			s *= -1;
+		c++;
+	}
+	while (str[c] >= '0' && str[c] <= '9')
+	{
+		res = (str[c] - '0') + (res * 10);
+		c++;
+	}
+	return (res * s);
 }

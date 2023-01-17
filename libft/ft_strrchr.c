@@ -2,24 +2,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:00:11 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/17 13:00:29 by gtegano          ###   ########.fr       */
+/*   Created: 2023/01/17 16:32:38 by gtegano           #+#    #+#             */
+/*   Updated: 2023/01/17 16:32:38 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+char    *ft_strrchr(const char *s, int c)
 {
-	unsigned char	*str;
+    const char *str;
 
-	str = (unsigned char *)s;
-	if (n)
-		while (n--)
-			*str++ = (unsigned char)c;
-	return (s);
-}
+    str = s;
+    while (*s)
+        s++;
+    while (s >= str)
+        if (*s-- == (char)c)
+            return ((char *)s + 1);
+    return (NULL);         
+} 
