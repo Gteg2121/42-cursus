@@ -6,9 +6,11 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:30:47 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/17 11:48:49 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:08:05 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(char *str)
 {

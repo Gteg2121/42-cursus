@@ -6,9 +6,11 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:13:16 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 11:54:45 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:08:05 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strstr(const	char *h, const	char *n)
 {

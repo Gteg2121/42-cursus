@@ -6,11 +6,13 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:03:53 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 11:45:29 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:08:05 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
