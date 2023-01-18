@@ -6,7 +6,7 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:43:43 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 14:58:19 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/18 16:00:01 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ char	*ft_strstr(const	char *h, const	char *n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_atoi(char	*str);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
