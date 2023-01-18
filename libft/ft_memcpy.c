@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:06:14 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/17 13:06:14 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/18 11:48:21 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +14,8 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char *str1;
-	unsigned char *str2;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
 	str1 = (unsigned char *)dest;
 	str2 = (unsigned char *)src;

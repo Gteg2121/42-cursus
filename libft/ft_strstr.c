@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 11:49:21 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 11:45:40 by gtegano          ###   ########.fr       */
+/*   Created: 2023/01/17 18:13:16 by gtegano           #+#    #+#             */
+/*   Updated: 2023/01/18 11:54:45 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+char	*ft_strstr(const	char *h, const	char *n)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9'))
-		return (1);
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (!*n)
+		return ((char *)h);
+	while (h[i] != '\0')
+	{
+		if (h[i] == n[0])
+		{
+			while (n[j] != '\0' && h[i + j] == n[j])
+			{
+				if (n[j + 1] == '\0')
+					return ((char *)&h[i]);
+				j++;
+			}
+		}
+		i++;
+	}
+	return (NULL);
 }
