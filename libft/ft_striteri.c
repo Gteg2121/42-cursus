@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 14:45:02 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/19 12:00:28 by gtegano          ###   ########.fr       */
+/*   Created: 2023/01/19 11:38:43 by gtegano           #+#    #+#             */
+/*   Updated: 2023/01/19 11:39:41 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	void	*str;
+	int	i;
 
-	str = (void *) malloc(size * nmemb);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, nmemb * size);
-	return (str);
+	i = 0;
+	if (!(s && f))
+		return ;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }
