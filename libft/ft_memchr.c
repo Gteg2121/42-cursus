@@ -6,7 +6,7 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 14:52:37 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 14:52:45 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/19 10:07:41 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memchr(const void *str, int c, size_t n)
 {
 	size_t	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (i < n)
 	{
@@ -23,5 +25,5 @@ void	*ft_memchr(const void *str, int c, size_t n)
 			return ((void *)(str + i));
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

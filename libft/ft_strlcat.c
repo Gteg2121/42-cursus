@@ -6,35 +6,35 @@
 /*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:12:19 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 12:08:05 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/19 10:16:10 by gtegano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
-	size_t	rsl;
+	size_t	src_len;
+	size_t	dst_len;
 
-	i = ft_strlen(dest);
-	rsl = ft_strlen(src);
 	j = 0;
-	if (size == 0)
-		return (rsl);
-	if (size < i)
-		rsl += size;
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = dst_len;
+	if (dstsize == 0)
+		return (src_len);
+	if (dstsize < dst_len)
+		return (src_len + dstsize);
 	else
-		rsl += i;
-	while (src[j] != '\0' && i < size - 1 && dest != src)
 	{
-		dest[i] = src[j];
-		j++;
-		i++;
+		while (src[j] && (dst_len + j) < dstsize)
+			dst[i++] = src[j++];
+		if ((dst_len + j) == dstsize && dst_len < dstsize)
+			dst[--i] = '\0';
+		else
+			dst[i] = '\0';
+		return (src_len + dst_len);
 	}
-	dest[i] = '\0';
-	return (rsl);
 }
