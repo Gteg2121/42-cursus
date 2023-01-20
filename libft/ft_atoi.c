@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gteg <gteg@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:33:38 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/19 10:19:34 by gtegano          ###   ########.fr       */
+/*   Updated: 2023/01/20 10:21:54 by gteg             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_atoi(const char *str)
 	long	nbr;
 	int		isneg;
 
-	i = 0;
+	i = 0
 	nbr = 0;
 	isneg = 0;
 	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
