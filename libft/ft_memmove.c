@@ -3,28 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gteg <gteg@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:07:27 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 12:08:05 by gtegano          ###   ########.fr       */
+/*   Created: 2022/01/20 10:57:43 by ffrau             #+#    #+#             */
+/*   Updated: 2023/05/07 17:30:53 by gteg             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	unsigned char	*s1;
-	unsigned char	*s2;
+	unsigned char	*str1_buff;
+	unsigned char	*str2_buff;
 
-	s1 = (unsigned char *)dest;
-	s2 = (unsigned char *)src;
-	if (s2 < s1)
+	str1_buff = (unsigned char *)str1;
+	str2_buff = (unsigned char *)str2;
+	if (!str1 && !str2)
+		return (str1);
+	if (str2 < str1)
 		while (n--)
-			s1[n] = s2[n];
+			str1_buff[n] = str2_buff[n];
 	else
-		ft_memcpy(s1, s2, n);
-	return (dest);
+		while (n--)
+			*str1_buff++ = *str2_buff++;
+	return (str1);
 }

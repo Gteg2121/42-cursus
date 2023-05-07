@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gteg <gteg@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 11:28:14 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/19 11:36:52 by gtegano          ###   ########.fr       */
+/*   Created: 2022/01/20 10:58:02 by ffrau             #+#    #+#             */
+/*   Updated: 2023/05/07 17:31:10 by gteg             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == FT_INT_MIN)
+	if (n == INT_MIN)
 		ft_putstr_fd("-2147483648", fd);
 	else if (n < 0)
 	{

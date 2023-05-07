@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gteg <gteg@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:13:16 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/18 14:29:27 by gtegano          ###   ########.fr       */
+/*   Created: 2022/01/20 10:57:27 by ffrau             #+#    #+#             */
+/*   Updated: 2023/05/07 17:30:32 by gteg             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const	char *h, const	char *n)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if (!*n)
-		return ((char *)h);
-	while (h[i] != '\0')
+	while (lst)
 	{
-		if (h[i] == n[0])
-		{
-			while (n[j] != '\0' && h[i + j] == n[j])
-			{
-				if (n[j + 1] == '\0')
-					return ((char *)&h[i]);
-				j++;
-			}
-		}
+		lst = lst->next;
 		i++;
 	}
-	return (NULL);
+	return (i);
 }

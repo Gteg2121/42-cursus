@@ -5,35 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gteg <gteg@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 11:33:38 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/20 10:21:54 by gteg             ###   ########.fr       */
+/*   Created: 2022/01/20 10:55:59 by ffrau             #+#    #+#             */
+/*   Updated: 2023/05/07 17:29:06 by gteg             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+bool	is_in_strings(char c, char *str)
+{
+	while (*str)
+	{
+		if (*str == c)
+			return (true);
+		str++;
+	}
+	return (false);
+}
+
 int	ft_atoi(const char *str)
 {
-	long	i;
-	long	nbr;
-	int		isneg;
+	int	sign;
+	int	result;
 
-	i = 0
-	nbr = 0;
-	isneg = 0;
-	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
-		i++;
-	if (str[i] != '\0' && str[i] == '-')
+	while (is_in_strings(*(char *) str, "\t\n\v\f\r "))
+		str++;
+	sign = 1;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	result = 0;
+	while (*str >= '0' && *str <= '9')
 	{
-		isneg = 1;
-		i++;
+		if (result * 10 < 0)
+			return (-1);
+		result *= 10;
+		result += *str - '0';
+		str++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		nbr = (nbr * 10) + (str[i++] - '0');
-	if (isneg == 1)
-		return (-nbr);
-	return (nbr);
+	return (result * sign);
 }

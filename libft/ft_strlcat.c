@@ -3,38 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtegano <gtegano@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gteg <gteg@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:12:19 by gtegano           #+#    #+#             */
-/*   Updated: 2023/01/19 10:16:10 by gtegano          ###   ########.fr       */
+/*   Created: 2022/01/20 10:59:11 by ffrau             #+#    #+#             */
+/*   Updated: 2023/05/07 17:31:36 by gteg             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	size_t	src_len;
-	size_t	dst_len;
+	char	*dst;
+	char	*src_start;
+	size_t	dst_length;
+	size_t	remaing;
 
-	j = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	i = dst_len;
-	if (dstsize == 0)
-		return (src_len);
-	if (dstsize < dst_len)
-		return (src_len + dstsize);
-	else
+	dst = dest;
+	src_start = (char *) src;
+	remaing = size;
+	while (remaing-- != 0 && *dst != '\0')
+		dst++;
+	dst_length = dst - dest;
+	remaing = size - dst_length;
+	if (remaing == 0)
+		return (dst_length + ft_strlen((char *) src));
+	while (*src != '\0')
 	{
-		while (src[j] && (dst_len + j) < dstsize)
-			dst[i++] = src[j++];
-		if ((dst_len + j) == dstsize && dst_len < dstsize)
-			dst[--i] = '\0';
-		else
-			dst[i] = '\0';
-		return (src_len + dst_len);
+		if (remaing > 1)
+		{
+			*dst++ = *src;
+			remaing--;
+		}
+		src++;
 	}
+	*dst = '\0';
+	return (dst_length + (src - src_start));
 }
